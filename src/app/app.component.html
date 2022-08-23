@@ -1,18 +1,5 @@
- 
- 
- <div class="container">
-    <h1>Welcome To  {{title}}</h1>
-  <div class="row ">
-    <div class="col-3" *ngFor="let singleMovie of moviesData "> 
-    <div class="card h-50" >
-        <img class="card-img-top" [src]= '"https://image.tmdb.org/t/p/w500"+singleMovie.poster_path' alt="Card image" style="width:100%">
-        <div class="card-body">
-          <h4 class="card-title"> {{singleMovie.original_title}}</h4>
-          <p class="card-text" *ngIf="singleMovie.isVisiable"> {{singleMovie.overview}}</p>
-          <button href="#" class="btn btn-primary" (click)="toggleDate(singleMovie.id)"> {{singleMovie.isVisiable? 'Hide':'Show'}} Details</button>
-        </div>
-      </div>
-    </div>
-
-  </div>
+ <div class="container  mt-5">
+    <h1>Welcome To  {{title}}</h1> 
+   
  </div> 
+ <app-movieslist></app-movieslist>
