@@ -13,6 +13,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { TvlistComponent } from './tvlist/tvlist.component';
+import { AddMovieComponent } from './add-movie/add-movie.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { TvlistComponent } from './tvlist/tvlist.component';
     MovieratingComponent,
     MovieDetailsComponent,
     PageNotFoundComponent,
-    TvlistComponent
+    TvlistComponent,
+    AddMovieComponent
   ],
   imports: [
     BrowserModule,

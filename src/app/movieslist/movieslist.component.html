@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-3" *ngFor="let singleMovie of filteredMovies">
       <div class="card h-50">
-       <a [routerLink]="['/movies',singleMovie.id]"><img
+       <a [routerLink]="['/movies',singleMovie._id]"><img
           class="card-img-top"
           [src]="'https://image.tmdb.org/t/p/w500' + singleMovie.poster_path"
           alt="Card image"

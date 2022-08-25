@@ -12,7 +12,7 @@ export class MovieslistComponent implements OnInit {
   isDiabled:boolean =true 
   childmsg:string='';
   pageSize:number=20
-  length:number=696880;
+  length!:number;
   currentPage:number=1
  private _searchValue:string='' 
  moviesData:any[]=[]
@@ -20,10 +20,10 @@ export class MovieslistComponent implements OnInit {
 
   constructor(private movsService:MoviesService){}//dependency injection
   ngOnInit(){
-     this.movsService.getAllMovies().subscribe({next:(movies)=>{
-       console.log(movies);
-       this.moviesData=movies.results,
-       this.filteredMovies=movies.results;
+     this.movsService.getAllMovies().subscribe({next:(data)=>{
+       this.moviesData=data.smovies;
+       this.filteredMovies=data.smovies;
+       this.length=data.maxMovies
        
      }})
     this.filteredMovies=this.moviesData;
@@ -69,10 +69,8 @@ export class MovieslistComponent implements OnInit {
 
     onPageChange(pageData:PageEvent){
     this.currentPage=pageData.pageIndex+1;
-    this.movsService.getAllMovies(this.currentPage).subscribe({next:(movies)=>{
-      console.log(movies);
-      this.moviesData=movies.results,
-      this.filteredMovies=movies.results;
+    this.movsService.getAllMovies(this.currentPage).subscribe({next:(data)=>{
+      this.filteredMovies=data.smovies;
       
     }})
      

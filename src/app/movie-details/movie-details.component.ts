@@ -12,9 +12,11 @@ export class MovieDetailsComponent implements OnInit {
   constructor(private moviesServ:MoviesService,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-    let id=Number(this.route.snapshot.paramMap.get('id'));
-    this.moviesServ.getMovieById(id).subscribe({next:(movie)=>{
+    let id=this.route.snapshot.paramMap.get('id');
+    this.moviesServ.getMovieById(id!).subscribe({next:(movie)=>{
       this.singleMovie=movie;
+      console.log(movie);
+      
     }})
   }
 
